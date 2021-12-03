@@ -16,7 +16,7 @@ glasbit = Item(3, 'glasbit')
 sten = Item(1, 'sten')
 halsband = Item(2, 'halsband')
 
-class player():
+class Player():
 
     def __init__(self):
         self.stark = 9
@@ -66,8 +66,6 @@ class player():
         if halsband in self.Item:
             self.stark += 2
             
-        
-
     def bakom_dörr(self):
         skit = randint(1, 50) 
         if skit in {26, 40}:
@@ -140,8 +138,6 @@ class player():
                         self.Item.append(halsband)
                         break
                     
-
-
         if skit > 40:
             i = randint(1, 6)
             
@@ -198,9 +194,7 @@ class player():
                 print()
                 print("Efter en stund av skakande reser du dig, går igenom dörren vars handtag")
                 print("inte längre är strömförande, och är redo för dit nästa val")
-            
-                
-                
+                   
         if skit < 25:
             
             if self.lvl < 5:
@@ -228,14 +222,7 @@ class player():
                 print("du går upp en level")
                 self.lvl += 1
                 input("Klicka på 'enter' för att fortsätta")
-            
-            
-                
-
-
-    
-
-
+              
 def meny():
     print("")
     print("Vad vill du göra?")
@@ -244,12 +231,7 @@ def meny():
     print("Gå frammåt i slottet -> d")
     print("")
 
-
-
-
-
-
-random_dude = player()
+random_dude = Player()
 
 while True:
     meny()
@@ -266,4 +248,3 @@ while True:
 
     if val == "d":
        random_dude.bakom_dörr()
-    
