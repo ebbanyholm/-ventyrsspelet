@@ -1,5 +1,5 @@
-print("test")
 from random import randint
+
 
 class Item():
 
@@ -267,4 +267,6 @@ while True:
 
     if val == "d":
        random_dude.bakom_dörr()
-           
+        
+
+#test
