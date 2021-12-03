@@ -1,6 +1,5 @@
 from random import randint
 
-
 class Item():
 
     def __init__(self, styrka, namn):
@@ -267,6 +266,4 @@ while True:
 
     if val == "d":
        random_dude.bakom_dörr()
-        
-
-#test
+    
