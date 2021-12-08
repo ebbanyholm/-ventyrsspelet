@@ -5,6 +5,10 @@ class Item():
     def __init__(self, styrka, namn):
         self.styrka = styrka
         self.namn = namn
+        
+    def skriv(self):
+        print(self.namn)
+        print(self.styrka)
 
 svärd = Item(4, 'svärd')
 pilbåge = Item(2, 'pilbåge')
@@ -22,12 +26,7 @@ class Player():
         self.stark = 9
         self.hp = 100
         self.lvl = 1
-        self.Item = []
-
-    #Def behöver fixas senare
-    def inventory(self):
-        for i in self.Item:
-            print(i.namn)
+        self.inventory = []
     
     def stats(self):
         print("")
@@ -39,105 +38,114 @@ class Player():
     def styrke_bonus(self):
         self.stark = 9 + self.lvl
 
-        if svärd in self.Item:
+        if svärd in self.inventory:
             self.stark += 4
         
-        if pilbåge in self.Item:
+        if pilbåge in self.inventory:
             self.stark += 2
 
-        if kniv in self.Item:
-            self.stark +=3
-
-        if yxa in self.Item:
-            self.stark +=3
-
-        if sköld in self.Item:
-            self.strak += 2
-
-        if kofot in self.Item:
-            self.stark += 4
-
-        if glasbit in self.Item:
+        if kniv in self.inventory:
             self.stark += 3
-            
-        if sten in self.Item:
-            self.stark += 1
-
-        if halsband in self.Item:
+        
+        if yxa in self.inventory:
+            self.stark += 3
+        
+        if sköld in self.inventory:
             self.stark += 2
+            
+        if kofot in self.inventory:
+            self.stark += 4
+        
+        
+
+    def visa_inventory(self):
+        if svärd in self.inventory:
+            print("svärd: styrka 4")
+        if pilbåge in self.inventory:
+            print("pilbåge: styrka 2")
+        if kniv in self.inventory:
+            print("kniv: styrka 3")
             
     def bakom_dörr(self):
-        skit = randint(1, 50) 
+        skit = randint(26, 50) 
         if skit in {26, 40}:
             print("Yay, en skattkista!!")
 
             while True:
-                slumpad_siffra = randint(1,9)
-                print("du fick en grej.")
+                slumpad_siffra = randint(1,3)
             
                 if slumpad_siffra == 1:
-                    if svärd in self.Item:
+                    if svärd in self.inventory:
                         continue
                     else:
-                        self.Item.append(svärd)
-                        break
+                        print("Du fick ett svärd")
+                        print("Vill du lägga till det i dit inventory?")
+                        print("")
+                        print("Det här är ditt inventory just nu:")
+                        #visa_inventory(self)
+                        if svärd in self.inventory:
+                            print("svärd: styrka 4")
+                        if pilbåge in self.inventory:
+                            print("pilbåge: styrka 2")
+                        if kniv in self.inventory:
+                            print("kniv: styrka 3")
+                        print("")
+                        
+                        ditt_val = input("Ja [j] eller Nej [n]? ->")
+                        if ditt_val == "j":
+                            self.inventory.append(svärd)
+                            break
+                        elif ditt_val == "n":
+                            break
                 
                 elif slumpad_siffra == 2:
-                    if pilbåge in self.Item:
+                    if pilbåge in self.inventory:
                         continue
                     else:
-                        self.Item.append(pilbåge)
-                        break
+                        print("Du fick en pilbåge")
+                        print("Vill du lägga till den i dit inventory?")
+                        print("")
+                        print("Det här är ditt inventory just nu:")
+                        #visa_inventory(self)
+                        if svärd in self.inventory:
+                            print("svärd: styrka 4")
+                        if pilbåge in self.inventory:
+                            print("pilbåge: styrka 2")
+                        if kniv in self.inventory:
+                            print("kniv: styrka 3")
+                        print("")
+                        
+                        ditt_val = input("Ja [j] eller Nej [n]? ->")
+                        if ditt_val == "j":
+                            self.inventory.append(pilbåge)
+                            break
+                        elif ditt_val == "n":
+                            break
                         
                 elif slumpad_siffra == 3:
-                    if kniv in self.Item:
+                    if kniv in self.inventory:
                         continue 
                     else:
-                        self.Item.append(kniv)
-                        break
-                
-                elif slumpad_siffra == 4:
-                    if yxa in self.Item:
-                        continue
-                    else:
-                        self.Item.append(yxa)
-                        break
-
-                elif slumpad_siffra == 5:
-                    if sköld in self.Item:
-                        continue
-                    else:
-                        self.Item.append(sköld)
-                        break
-                
-                elif slumpad_siffra == 6:
-                    if kofot in self.Item:
-                        continue
-                    else:
-                        self.Item.append(kofot)
-                        break
-                            
-                elif slumpad_siffra == 7:
-                    if glasbit in self.Item:
-                        continue
-                    else:
-                        self.Item.append(glasbit)
-                        break
+                        print("Du fick en kniv")
+                        print("Vill du lägga till den i dit inventory?")
+                        print("")
+                        print("Det här är ditt inventory just nu:")
+                        #visa_inventory(self)
+                        if svärd in self.inventory:
+                            print("svärd: styrka 4")
+                        if pilbåge in self.inventory:
+                            print("pilbåge: styrka 2")
+                        if kniv in self.inventory:
+                            print("kniv: styrka 3")
+                        print("")
                         
-                elif slumpad_siffra == 8:
-                    if sten in self.Item:
-                        continue
-                    else:
-                        self.Item.append(sten)
-                        break
+                        ditt_val = input("Ja [j] eller Nej [n]? ->")
+                        if ditt_val == "j":
+                            self.inventory.append(kniv)
+                            break
+                        elif ditt_val == "n":
+                            break
                         
-                elif slumpad_siffra == 9:
-                    if halsband in self.Item:
-                        continue
-                    else:
-                        self.Item.append(halsband)
-                        break
-                    
         if skit > 40:
             i = randint(1, 6)
             
@@ -164,7 +172,6 @@ class Player():
                 print()
                 print("Du lander sedan på en madrass och är redo för ditt nästa val")
             
-                
             if i == 3:
                 print("Du gick in i en glas vägg och fick en ")
                 print("lätt hjärnskakning och en bruten näsa")
@@ -196,34 +203,106 @@ class Player():
                 print("inte längre är strömförande, och är redo för dit nästa val")
                    
         if skit < 25:
-            
+        
             if self.lvl < 5:
                 m_styrka = randint(1, 15)
+                m_liv = randint(1, 15)
                 
             elif self.stark in {5, 6, 7, 8, 9}:
                 m_styrka = randint(10, 20)
+                m_liv = randint(10, 20)
                 
             else: 
                 m_styrka = randint(25, 35)
+                m_liv = randint(25, 35)
+            
+            def m_meny():
+                print("")
+                print("vad vill du göra?")
+                print("")
+                print("Slå till             -> a")
+                print("Kolla styrka och liv -> i")
+                print("Spring!              -> s")
+
+            while True:
+                m_meny()
+                val = input("-> ")
+                
+                if val == "a":
+                    strid = randint(1, 3)
+        
+                    if strid in (1, 2):
+                        print("träffade monstret")
+                        m_liv -= Self.stark
+
+                    else:
+                        print("missade moonstret")
+                
+                if val == "i":
+                    print("")
+                    print(f"Du har {self.stark} i styrka och {self.hp} i liv")
+                    print(f"Monstret har {m_styrka} i styka och {m_liv} i liv")
+                    print("")
+                    continue
+
+                if val == "s":
+                    spring = randint(1, 3)
+                    if self.stark < m_styrka:
+                        if spring == 1:
+                            print("Du sprang iväg")
+                            print("tillbaka til slottet")
+                            break
+                    
+                        else:
+                            print("Du misslyckades med att springa iväg")
+
+                    if self.stark > m_styrka:
+                        if spring in {1, 2}:
+                        print("Du sprang iväg")
+                        print("tillbaka till slottet")
+                        break
+
+                    else:
+                        print("Du misslyckade med att springa iväg")
+
+                if m_liv <= 0:
+                    print("Monstret blev ledset och sprang iväg")
+                    print("Du lvlade upp!")
+                    self.lvl += 1
+                    print("tillbaka till slottet")
+                    break
+
+                ont = randint(1, 3)
+                if ont in {1, 2}:
+                    print("monstret missade")
+
+                elif ont == 3:
+                    print("Monstret skadade dig")
+                    self.hp -= m_styrka
+            
+                if self.hp <= 0:
+                    break
+                    
+        def dö(self):
+            if self.hp <= 0:
+                print("Du dog och förlorade alla dina hälsopoäng")
+                break
+            
+        def vinna(self): 
+            if self.lvl >= 15:
+                print("Wooooooo")
+                print("Du vann!!!!!")
+                break 
+                          
+
+                
 
 
-            if self.stark < m_styrka:
-                print("Du slåss mot ett läskigt monster")
-                print(f"du förlorar {m_styrka} hälsopoäng")
-                self.hp -= m_styrka
-                input("klicka på 'enter' för att fortsätta")
                 
-                
-            elif self.stark == m_styrka:
-                print("Ni tittar stelt på varandra")
-                
-            else:
-                print("du slår ner monstret och går genom dörren")
-                print("du går upp en level")
-                self.lvl += 1
-                input("Klicka på 'enter' för att fortsätta")
-              
+
+           
 def meny():
+    print("")
     print("")
     print("Vad vill du göra?")
     print("kolla inventory      -> i")
@@ -231,6 +310,7 @@ def meny():
     print("Gå frammåt i slottet -> d")
     print("")
 
+#huvudprogram
 random_dude = Player()
 
 while True:
@@ -239,7 +319,7 @@ while True:
     val = input("Ditt val -> ")
 
     if val == "i":
-        random_dude.inventory()
+        random_dude.visa_inventory()
         input("för att stänga, klicka på enter")
 
     if val == "s":
