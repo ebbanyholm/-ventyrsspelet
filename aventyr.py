@@ -67,7 +67,7 @@ class Player():
             print("kniv: styrka 3")
             
     def bakom_dörr(self):
-        skit = randint(26, 50) 
+        skit = randint(1, 50) 
         if skit in {26, 40}:
             print("Yay, en skattkista!!")
 
@@ -79,7 +79,7 @@ class Player():
                         continue
                     else:
                         print("Du fick ett svärd")
-                        print("Vill du lägga till det i dit inventory?")
+                        print("Vill du lägga till det i ditt inventory?")
                         print("")
                         print("Det här är ditt inventory just nu:")
                         #visa_inventory(self)
@@ -233,7 +233,7 @@ class Player():
         
                     if strid in (1, 2):
                         print("träffade monstret")
-                        m_liv -= Self.stark
+                        m_liv -= self.stark
 
                     else:
                         print("missade moonstret")
@@ -258,12 +258,12 @@ class Player():
 
                     if self.stark > m_styrka:
                         if spring in {1, 2}:
-                        print("Du sprang iväg")
-                        print("tillbaka till slottet")
-                        break
+                            print("Du sprang iväg")
+                            print("tillbaka till slottet")
+                            break
 
-                    else:
-                        print("Du misslyckade med att springa iväg")
+                        else:
+                            print("Du misslyckade med att springa iväg")
 
                 if m_liv <= 0:
                     print("Monstret blev ledset och sprang iväg")
@@ -286,13 +286,11 @@ class Player():
         def dö(self):
             if self.hp <= 0:
                 print("Du dog och förlorade alla dina hälsopoäng")
-                break
             
         def vinna(self): 
             if self.lvl >= 15:
                 print("Wooooooo")
-                print("Du vann!!!!!")
-                break 
+                print("Du vann!!!!!") 
                           
 
                 
