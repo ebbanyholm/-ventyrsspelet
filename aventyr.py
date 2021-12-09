@@ -66,39 +66,103 @@ class Player():
         if kniv in self.inventory:
             print("kniv: styrka 3")
             
+
+
+class Player():
+
+    def __init__(self):
+        self.stark = 9
+        self.hp = 100
+        self.lvl = 1
+        self.inventory = []
+    
+    def stats(self):
+        print("")
+        print(f"Du har {self.hp} hp kvar")
+        print(f"Din styrka är {self.stark}")
+        print(f"Din lvl är {self.lvl}")
+        print("")
+
+    def styrke_bonus(self):
+        self.stark = 9 + self.lvl
+
+        if svärd in self.inventory:
+            self.stark += 4
+        
+        if pilbåge in self.inventory:
+            self.stark += 2
+
+        if kniv in self.inventory:
+            self.stark += 3
+   
+    def visa_inventory(self):
+        if svärd in self.inventory:
+            print("svärd: styrka 4")
+        if pilbåge in self.inventory:
+            print("pilbåge: styrka 2")
+        if kniv in self.inventory:
+            print("kniv: styrka 3")
+
+                             
+        
+
     def bakom_dörr(self):
-        skit = randint(1, 50) 
-        if skit in {26, 40}:
-            print("Yay, en skattkista!!")
+       def visa_inventory():
+        if svärd in self.inventory:
+            print("svärd: styrka 4")
+        if pilbåge in self.inventory:
+            print("pilbåge: styrka 2")
+        if kniv in self.inventory:
+            print("kniv: styrka 3")
+
+        def inventory_fullt():
+            print("ditt inventory är fullt..")
+            print("vill du ersätta något?")
+            print("ja [j]")                              
+            print("nej [n]")    
+
+        def ersätta():
+            vilken = input("vilken vill du ersätta? 1,2 eller 3? -->")
+            if vilken == 1:
+                self.inventory.pop(0)
+            elif vilken == 2:
+                self.inventory.pop(1)
+            elif vilken == 3:
+                self.inventory.pop(2)
+
+            
+        skit = randint(1, 9)
+        i = 0 
+        if skit in {1, 9}:
+            
+            print("Yey, en skattkista!!")
 
             while True:
-                slumpad_siffra = randint(1,3)
-            
-                if slumpad_siffra == 1:
+                slumpat_föremål = 1
+                        
+                if slumpat_föremål == 1:
                     if svärd in self.inventory:
                         continue
                     else:
                         print("Du fick ett svärd")
-                        print("Vill du lägga till det i ditt inventory?")
-                        print("")
-                        print("Det här är ditt inventory just nu:")
-                        #visa_inventory(self)
-                        if svärd in self.inventory:
-                            print("svärd: styrka 4")
-                        if pilbåge in self.inventory:
-                            print("pilbåge: styrka 2")
-                        if kniv in self.inventory:
-                            print("kniv: styrka 3")
-                        print("")
-                        
-                        ditt_val = input("Ja [j] eller Nej [n]? ->")
-                        if ditt_val == "j":
-                            self.inventory.append(svärd)
-                            break
-                        elif ditt_val == "n":
-                            break
+                        if i == 3: 
+                            inventory_fullt()
+                            valet=input("->")
+                            if valet == "j":
+                                visa_inventory()
+                                ersätta()
+                                self.inventory.append(svärd)
+                            elif valet == "n":
+                                break
+                        else:
+                            print("Vill du lägga till den i dit inventory?")
+                            print("")
+                            print("Det här är ditt inventory just nu:")   #som funktion
+                            visa_inventory() #valen
+
+
                 
-                elif slumpad_siffra == 2:
+                elif slumpat_föremål == 2:
                     if pilbåge in self.inventory:
                         continue
                     else:
@@ -122,7 +186,7 @@ class Player():
                         elif ditt_val == "n":
                             break
                         
-                elif slumpad_siffra == 3:
+                elif slumpat_föremål == 3:
                     if kniv in self.inventory:
                         continue 
                     else:
@@ -326,3 +390,4 @@ while True:
 
     if val == "d":
        random_dude.bakom_dörr()
+    
