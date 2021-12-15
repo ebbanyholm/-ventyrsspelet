@@ -225,7 +225,7 @@ class Player():
             
             if i == 1:
                 print("Du går in i en restaurangen")
-                print("Ett bord fyliger rätt emot dig")
+                print("Ett bord flyger rätt emot dig")
                 print()
                 print("Det blir svart")
                 print("Du förlorade fyra hälsopoäng")
@@ -234,7 +234,7 @@ class Player():
                 print("Efter en stund vaknar du upp igen")
                 print()
                 print("Resturangen är nu borta")
-                print("Du är tillbaka i korridåren igen")
+                print("Du är tillbaka i korridoren igen")
 
             if i == 2:
                 antal_knivar = randint(1, 5)
@@ -268,13 +268,13 @@ class Player():
                 print("Du är nu redo för ditt nästa val.")
 
             if i == 6:
-                print("Du stäcker ut din hand redo att öppna dörren framför dig.")
-                print("När din hud kommer i kontakt med dörrhantaget börjar du SssKKaKka som aldirg för.")
+                print("Du sträcker ut din hand redo att öppna dörren framför dig.")
+                print("När din hud kommer i kontakt med dörrhantaget börjar du SssKKaKka som aldrig för.")
                 print("Du har fått en stöt och du förlorar 1 hälsopoäng!")
                 self.hp -= 1  
                 print()
                 print("Efter en stund av skakande reser du dig, går igenom dörren vars handtag")
-                print("inte längre är strömförande, och är redo för dit nästa val")
+                print("inte längre är strömförande, och är redo för ditt nästa val")
                    
         if skit in {7,8,9}:
         
@@ -312,7 +312,7 @@ class Player():
 
                     else:
                         print()
-                        print("missade moonstret")
+                        print("missade monstret")
                 
                 if val == "q":
                     print("")
