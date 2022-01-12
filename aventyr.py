@@ -43,7 +43,7 @@ class Player():
         if "yxa_3" in self.inventory:
             print("yxa: styrka 3")
 
-    # ------------------------------------------------------- BAKOM DÖRR ------------------------------------------------------- #
+    # ------------------------------------------------- B A K O M   D Ö R R ------------------------------------------------------- #
 
     def bakom_dörr(self):    
         
@@ -86,9 +86,7 @@ class Player():
             
             def redo_för_val():
              print("Du är nu redo för ditt nästa val.")
-            
-
-            
+     
             # -------------------------------------- skattkista --------------------------------------#
             if dörrens_innehåll == 1:
                 print("Yey, en skattkista!!")
@@ -240,11 +238,6 @@ class Player():
                         self.hp += hp_bonus
                         print(f"Du känner dig {hp_bonus} hälsopoäng friskare ")
                         break
-                    
-
-                
-
-
 
             # ------------------------------------------ fälla ---------------------------------------#                
             if dörrens_innehåll == 2:
@@ -293,7 +286,6 @@ class Player():
                     self.hp -= 2
                     redo_för_val()
                     
-
                 if i == 4:
                     print('''
                         Du stöter på en tom dörr...
@@ -326,8 +318,7 @@ class Player():
 
                     ''')
                     self.hp -= 1  
-
-                    
+ 
             # -------------------------------------- monster -------------------------------------- #
             if dörrens_innehåll == 3:
             
@@ -353,8 +344,6 @@ class Player():
                         
                         ''')
 
-                
-        
                 while True:
                     print("Du står nu öga mot öga med ett monster")
                     m_meny()
@@ -366,7 +355,7 @@ class Player():
                         if strid in (1, 2):
                             print()
                             print("Du träffade monstret")
-                            m_liv -= self.styrka   # VARFÖR? MAN TRÄFFAR VÄLL INTE SAMMA MONSEER IGEN....
+                            m_liv -= self.styrka   # <-- VARFÖR? MAN TRÄFFAR VÄLL INTE SAMMA MONSEER IGEN....
                           
                         else:
                             print()
@@ -381,6 +370,7 @@ class Player():
 
                     if val == "d":
                         spring = randint(1, 3)
+
                         if self.styrka < m_styrka:
                             if spring == 1:
                                 print()
@@ -390,7 +380,7 @@ class Player():
                         
                             else:
                                 print()
-                                print("Du misslyckades med att springa iväg")
+                                print("Du misslyckades med att springa iväg") # monstret missluckas med att slå efter.. varför?.. ska de vara så?
                             
 
                         if self.styrka > m_styrka:
@@ -402,49 +392,48 @@ class Player():
                             else:
                                 print("Du misslyckade med att springa iväg")
 
-                    if m_liv <= 0:                                                 ##### varför? VAD GÖR DEN?
-                        print("Monstret blev ledset och sprang iväg")
-                        print("Du lvlade upp!")
+                    if m_liv <= 0: #  <---     vad betyder detta?
+                        print("Monstret blev ledset och sprang iväg") # kommer denna upp efter du träffar monstret?            
+                        print("Du lvlade upp!")                       # varför inte skriva den under den då?..
                         self.lvl += 1
                         redo_för_val() 
                         break
 
                     m_slag_resultat = randint(1, 3)
                     if m_slag_resultat in {1, 2}:
-                        print("Du missade monstret")
+                        print("Du missade monstret")  # <---- Är det inte monstret som slår? (m_slag_resultat)
                         redo_för_val() 
                         break
 
                     elif m_slag_resultat == 3:
-                        print("Monstret skadade dig")
+                        print("Monstret skadade dig") #Träffade?
                         self.hp -= m_styrka
                         redo_för_val() 
                         break
                 
-                    if self.hp <= 0:
+                    if self.hp <= 0: # Vad gör denna?
                         break
         
         else:
             print("Felaktig inmating")
-            
-                   
+    
+    #-------------------------------------------------- inte längre bakom dörr ----------------------------------------------------------#
+    
     def dö(self):
         print("Du dog då du förlorade alla dina hälsopoäng")
         print(f"Du kom till lvl {self.lvl}")
                 
-            
     def vinna(self):
         print("Wooooooo")
         print("Du vann!!!!!")
         print(f"{self.hp} hälsopoäng återstår.")
 
-    def fusknapp(self):
+    def fusknapp_vinst(self):
         self.lvl += 15
 
-    def fusknapp_2(self):
+    def fusknapp_förlust(self):
         self.hp -= 100                          
-
-                
+     
 def meny():
     print('''
     Vad vill du göra?
@@ -455,7 +444,7 @@ def meny():
 
     ''')
 
-#huvudprogram
+#---------------------------------------- H U V U D P R O G R A M -----------------------------------#
 random_dude = Player()
 
 while True:
@@ -475,10 +464,10 @@ while True:
        random_dude.bakom_dörr()
 
     if val == "p":
-        random_dude.fusknapp()
+        random_dude.fusknapp_vinst()
         
     if val == "å":
-        random_dude.fusknapp_2()
+        random_dude.fusknapp_förlust()
 
     if random_dude.hp <= 0:
         random_dude.dö()
