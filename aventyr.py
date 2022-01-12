@@ -81,6 +81,8 @@ class Player():
                 print("FÖREMÅL_STYRKA")
                 print(self.inventory)
                 
+            def redo_för_val():
+             print("Du är nu redo för ditt nästa val.")
             
 
             
@@ -246,48 +248,63 @@ class Player():
                 i = randint(1, 6)
                 
                 if i == 1:
-                    print("Du går in i en restaurangen")
-                    print("Ett bord flyger rätt emot dig")
-                    print()
-                    print("Det blir svart")
-                    print("Du förlorade fyra hälsopoäng")
+                    print('''
+                    Du går in i en restaurangen. Ett bord flyger rätt emot dig. 
+                   
+                    Det blir svart....
+                    
+                    Du förlorade fyra hälsopoäng.
+                  
+                    Efter en stund vaknar du upp igen..
+                    
+                    Resturangen är nu borta..
+                   
+                    ... tillbaka i korridoren ...
+                    
+                    ''')
+                    
                     self.hp -= 4
-                    print()
-                    print("Efter en stund vaknar du upp igen")
-                    print()
-                    print("Resturangen är nu borta")
-                    print("Du är tillbaka i korridoren igen")
+                    redo_för_val()
 
                 if i == 2:
                     antal_knivar = randint(1, 5)
-                    print("Du gick på en fallucka")
-                    print()
-                    print(f"Under ditt fall stöter du på {antal_knivar} knivar")
-                    print(f"Du förlorade {antal_knivar} hälsopoäng")
+                    print(f'''Du gick på en fallucka.
+                    Under ditt fall stöter du på {antal_knivar} knivar
+                    
+                    Du förlorade {antal_knivar} hälsopoäng
+        
+                    Du lander sedan på en madrass och är redo för ditt nästa val
+                    ''')
                     self.hp -= antal_knivar
-                    print()
-                    print("Du lander sedan på en madrass och är redo för ditt nästa val")
                 
                 if i == 3:
-                    print("Du gick in i en glas vägg och fick en ")
-                    print("lätt hjärnskakning och en bruten näsa")
-                    print("Du förlorade 2 hälsopoäng")
+                    print('''Du gick in i en glas vägg och fick en lätt hjärnskakning 
+                    och bröt din näsa
+                    
+                    Du förlorade 2 hälsopoäng
+                        
+                    ''')
                     self.hp -= 2
-                    print("Du är nu redo för ditt nästa val.")
+                    redo_för_val()
+                    
 
                 if i == 4:
-                    print("Du stöter på en tom dörr.")
-                    print("På din väg genom dörren stukar du din högra fot")
-                    print("och förlorar 1 hälsopoäng")
+                    print('''Du stöter på en tom dörr...
+           
+                    På din väg genom dörren stukar du din högra fot och förlorar 1 hälsopoäng.
+                    
+                    ''')
                     self.hp -= 1  
-                    print("Du är nu redo för ditt nästa val.")
+                    redo_för_val() 
 
                 if i == 5:
-                    print("Du stöter på en tom dörr.")
-                    print("På din väg genom dörren stukar du din vänstra fot")
-                    print("och förlorar 1 hälsopoäng")
+                    print('''Du stöter på en tom dörr.
+                    
+                    På din väg genom dörren stukar du din vänstra fot och förlorar 1 hälsopoäng.
+
+                    ''')
                     self.hp -= 1  
-                    print("Du är nu redo för ditt nästa val.")
+                    redo_för_val() 
 
                 if i == 6:
                     print("Du sträcker ut din hand redo att öppna dörren framför dig.")
@@ -296,7 +313,7 @@ class Player():
                     self.hp -= 1  
                     print()
                     print("Efter en stund av skakande reser du dig, går igenom dörren vars handtag")
-                    print("inte längre är strömförande, och är redo för ditt nästa val")
+                    print("inte längre är strömförande, och är redo för ditt nästa val")                    ##################
                     
 
                     
@@ -323,22 +340,53 @@ class Player():
                     print("Spring!                    -> d")
                     print("Visa styrka och hälsopoäng -> q")
 
+                def moonsret():
+                    monstrets_namn = randint(1, 3)
+
+                    if monstrets_namn == 1:
+                        print('''
+                        
+                        Du träffade på monstret Lars Olaf I köket. 
+                        Lars Olaf letar efter den senaste tjock-korven. 
+                        Lars Olaf har letat en lång tid och har inte hittat den. 
+                        Lars Olaf är sur
+                        Lars Olaf märker att du tittar på honom och blir rosenrasande på dig
+                        Lars Olaf attackerar
+
+                        ''')
+                        
+                    if monstrets_namn == 2:
+                        print('''
+                        
+                        Monstert Sten Classe flyter på en uppblåsbar svan och dricker piña colada i slottets privata pool
+                        Du tycker det ser ut som en bra chans att ta en paus från ditt äventyr
+                        Du smyger dig fram för att inte störa Sten Classe
+                        Sten Classe hör dig inte
+                        Du sträcker dig efter bordet där det står piña coladas
+                        Glasen klirrar till
+                        Sten Classe vänder sig om och ser dig 
+                        Sten Classe tycker att du har stört honom och han blir arg
+                        Sten Classe attackerar
+
+                        ''')
+        
                 while True:
+                    moonsret()
                     m_meny()
                     val = input("-> ")
                     
                     if val == "a":
                         strid = randint(1, 3)
-            
+                        
                         if strid in (1, 2):
                             print()
                             print("träffade monstret")
                             m_liv -= self.stark
-
+                          
                         else:
                             print()
                             print("missade monstret")
-                    
+                        
                     if val == "q":
                         print("")
                         print(f"Du har {self.stark} i styrka och {self.hp} i liv")
@@ -363,7 +411,7 @@ class Player():
                             if spring in {1, 2}:
                                 
                                 print("Du sprang iväg")
-                                print("tillbaka till slottet")
+                                print("Du ä nu redo för ditt nästa val.")
                                 break
 
                             else:
@@ -373,7 +421,7 @@ class Player():
                         print("Monstret blev ledset och sprang iväg")
                         print("Du lvlade upp!")
                         self.lvl += 1
-                        print("tillbaka till slottet")
+                        print("Du är nu redo för ditt nästa val.")   #########
                         break
 
                     m_slag_resultat = randint(1, 3)
@@ -399,7 +447,7 @@ class Player():
     def vinna(self):
         print("Wooooooo")
         print("Du vann!!!!!")
-        print(f"{self.lvl} hälsopoäng återstår.")
+        print(f"{self.hp} hälsopoäng återstår.")
 
     def fusknapp(self):
         self.lvl += 15
