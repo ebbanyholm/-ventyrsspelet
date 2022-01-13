@@ -3,17 +3,16 @@
 from random import randint
 
 # ---------------------------------------------------------- KLASSEN PLAYER -------------------------------------------------------- #
-
 class Player():
     def __init__(self):
-        self.styrka = 9
+        self.styrka = 9               ##################
         self.hp = 100                 #kopplar spelaren med dess styrka, lvl, hp och inventory
         self.lvl = 1
         self.inventory = []
     
     def stats(self):
         print("")
-        print(f"Du har {self.hp} hp kvar")
+        print(f"Du har {self.hp} hp kvar")             #################
         print(f"Din styrka är {self.styrka}")
         print(f"Din lvl är {self.lvl}")
         print("")
@@ -21,7 +20,7 @@ class Player():
     def styrke_bonus(self):                 #ger spelaren styrke bonus beroende på inventoryt
         self.styrka = 9 + self.lvl
         if "svärd_4" in self.inventory:
-            self.styrka += 4
+            self.styrka += 4                        ##################
         if "pilbåge_2" in self.inventory:
             self.styrka += 2
         if "kniv_3" in self.inventory:
@@ -34,7 +33,7 @@ class Player():
     def visa_inventory(self):
         if "svärd_4" in self.inventory:
             print("svärd: styrka 4")
-        if "pilbåge_2" in self.inventory:
+        if "pilbåge_2" in self.inventory:                 #################
             print("pilbåge: styrka 2")
         if "kniv_3" in self.inventory:
             print("kniv: styrka 3")
@@ -45,7 +44,7 @@ class Player():
 
     # ------------------------------------------------- B A K O M   D Ö R R ------------------------------------------------------- #
 
-    def bakom_dörr(self):    
+    def bakom_dörr(self):    ###################
         
         val_av_dörr = input("Vilken dörr vill du gå in i? [1],[2] eller[3]? -->")
         print()
@@ -54,7 +53,7 @@ class Player():
 
             dörrens_innehåll =randint(1,3)
 
-            def inventory_fullt():
+            def inventory_fullt():         ################
                 print('''
                 Ditt inventory är fullt..")
                 Vill du ersätta något?
@@ -63,12 +62,12 @@ class Player():
                 nej [d]
                 ''')  
 
-            def visa_inventory_kista():
+            def visa_inventory_kista():       ################
                 print("FÖREMÅL_STYRKA")
                 print(self.inventory)
 
-            def ersätta():
-                while True:
+            def ersätta():              ################
+                while True:         
                     vilken = int(input("vilken vill du ersätta? 1,2 eller 3? -->"))
                     if vilken == 1:
                         self.inventory.pop(0)
@@ -84,7 +83,7 @@ class Player():
                         print("felaktig input")
                         continue
             
-            def redo_för_val():
+            def redo_för_val():             ##############
              print("Du är nu redo för ditt nästa val.")
      
             # -------------------------------------- skattkista --------------------------------------#
@@ -100,7 +99,7 @@ class Player():
                         if "svärd_4" in self.inventory:
                             continue
                         else:
-                            print("Du fick ett svärd")
+                            print("Du fick ett svärd ⚔")
                             if antal_föremål_inventory == 3: 
                                 inventory_fullt()
                                 valet=input("->")
@@ -128,7 +127,7 @@ class Player():
 
                             continue
                         else:
-                            print("Du fick en pilbåge")
+                            print("Du fick en pilbåge 🏹")
                             if antal_föremål_inventory == 3: 
                                 inventory_fullt()
                                 valet=input("->")
@@ -155,7 +154,7 @@ class Player():
                         if "kniv_3" in self.inventory:
                             continue
                         else:
-                            print("Du fick en kniv")
+                            print("Du fick en kniv 🔪")
                             if antal_föremål_inventory == 3: 
                                 inventory_fullt()
                                 valet=input("->")
@@ -182,7 +181,7 @@ class Player():
                         if "sköld_2" in self.inventory:
                             continue
                         else:
-                            print("Du fick en sköld")
+                            print("Du fick en sköld 🛡")
                             if antal_föremål_inventory == 3: 
                                 inventory_fullt()
                                 valet=input("->")
@@ -209,7 +208,7 @@ class Player():
                         if "yxa_3" in self.inventory:
                             continue
                         else:
-                            print("Du fick en yxa")
+                            print("Du fick en yxa 🪓")
                             if antal_föremål_inventory == 3: 
                                 inventory_fullt()
                                 valet=input("->")
@@ -276,8 +275,7 @@ class Player():
                     self.hp -= antal_knivar
                 
                 if i == 3:
-                    print('''
-                        Du gick in i en glas vägg och fick en lätt hjärnskakning 
+                    print('''Du gick in i en glas vägg och fick en lätt hjärnskakning 
                         och bröt din näsa.
                         
                         Du förlorade 2 hälsopoäng.
@@ -324,15 +322,15 @@ class Player():
             
                 if self.lvl < 5:
                     m_styrka = randint(1, 15)
-                    m_liv = randint(1, 15)
+                    m_hp = randint(1, 15)
                     
                 elif self.styrka in {5, 6, 7, 8, 9}:
                     m_styrka = randint(10, 20)
-                    m_liv = randint(10, 20)
+                    m_hp = randint(10, 20)
                     
                 else: 
                     m_styrka = randint(25, 35)
-                    m_liv = randint(25, 35)
+                    m_hp = randint(25, 35)
                 
                 def m_meny():
                     print('''
@@ -345,7 +343,8 @@ class Player():
                         ''')
 
                 while True:
-                    print("Du står nu öga mot öga med ett monster")
+                    print()
+                    print("Du står öga mot öga med ett monster..")
                     m_meny()
                     val = input("Ditt val -> ")
                     
@@ -355,23 +354,23 @@ class Player():
                         if strid in (1, 2):
                             print()
                             print("Du träffade monstret")
-                            m_liv -= self.styrka   # <-- VARFÖR? MAN TRÄFFAR VÄLL INTE SAMMA MONSEER IGEN....
+                            m_hp -= self.styrka   
                           
                         else:
                             print()
-                            print("Monstret missade dig")
+                            print("Du missade monstret")
                         
                     if val == "q":
                         print("")
-                        print(f"Du har {self.styrka} i styrka och {self.hp} i liv")
-                        print(f"Monstret har {m_styrka} i styka och {m_liv} i liv")
+                        print(f"Du har {self.styrka} i styrka och {self.hp} hälsopoäng")
+                        print(f"Monstret har {m_styrka} i styka och {m_hp} hälsopoäng")
                         print("")
                         continue
 
                     if val == "d":
                         spring = randint(1, 3)
 
-                        if self.styrka < m_styrka:
+                        if self.styrka <= m_styrka:
                             if spring == 1:
                                 print()
                                 print("Du sprang iväg")
@@ -380,7 +379,7 @@ class Player():
                         
                             else:
                                 print()
-                                print("Du misslyckades med att springa iväg") # monstret missluckas med att slå efter.. varför?.. ska de vara så?
+                                print("Du misslyckades med att springa iväg") 
                             
 
                         if self.styrka > m_styrka:
@@ -392,26 +391,24 @@ class Player():
                             else:
                                 print("Du misslyckade med att springa iväg")
 
-                    if m_liv <= 0: #  <---     vad betyder detta?
-                        print("Monstret blev ledset och sprang iväg") # kommer denna upp efter du träffar monstret?            
-                        print("Du lvlade upp!")                       # varför inte skriva den under den då?..
+                    if m_hp <= 0: 
+                        print("Monstret blev ledset och sprang iväg")            
+                        print("Du lvlade upp!")                       
                         self.lvl += 1
                         redo_för_val() 
                         break
 
                     m_slag_resultat = randint(1, 3)
                     if m_slag_resultat in {1, 2}:
-                        print("Du missade monstret")  # <---- Är det inte monstret som slår? (m_slag_resultat)
+                        print("Monstret missade dig")
                         redo_för_val() 
-                        break
 
                     elif m_slag_resultat == 3:
-                        print("Monstret skadade dig") #Träffade?
+                        print("Monstret träffade dig") 
                         self.hp -= m_styrka
-                        redo_för_val() 
-                        break
+                        redo_för_val()
                 
-                    if self.hp <= 0: # Vad gör denna?
+                    if self.hp <= 0: 
                         break
         
         else:
@@ -419,24 +416,24 @@ class Player():
     
     #-------------------------------------------------- inte längre bakom dörr ----------------------------------------------------------#
     
-    def dö(self):
+    def dö(self):                            ###################
         print("Du dog då du förlorade alla dina hälsopoäng")
         print(f"Du kom till lvl {self.lvl}")
                 
     def vinna(self):
-        print("Wooooooo")
+        print("Wooooooo")          ##############
         print("Du vann!!!!!")
         print(f"{self.hp} hälsopoäng återstår.")
 
     def fusknapp_vinst(self):
-        self.lvl += 15
+        self.lvl += 15                   ###############
 
     def fusknapp_förlust(self):
-        self.hp -= 100                          
+        self.hp -= 100                #################    
      
-def meny():
+def meny():                         ###############
     print('''
-    Vad vill du göra?
+    Vad vill du göra?                
         
     - Gå frammåt i slottet -> w
     - Kolla stats          -> q
