@@ -567,6 +567,8 @@ while True:
         print('''
         Livet är ett misstag
         Klicka på å för att veta varför
+
+        Pankakor är även najs
         ''')
         continue
 
