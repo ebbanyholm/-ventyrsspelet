@@ -531,6 +531,13 @@ def meny():
 
     ''')
 
+def avslutande_text():
+    print('''
+    Tack för att du spelade detta spel!
+    Hoppas du hade lite kul i alla fall.
+    
+    Skapat av: Julia, Ebba och Emilia Te20c
+    ''')
 #---------------------------------------- H U V U D P R O G R A M -----------------------------------#
 random_dude = Player()
 intro_text()
@@ -570,3 +577,4 @@ while True:
     if random_dude.lvl >= 15:
         random_dude.vinna()
         break
+avslutande_text()
