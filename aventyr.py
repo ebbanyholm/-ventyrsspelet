@@ -23,7 +23,8 @@ class Player():
         print(f"Din styrka är {self.styrka}")
         print(f"Din lvl är {self.lvl}")
         print("")
-
+        input("för att stänga, klicka på enter")
+        
     def styrke_bonus(self):    
         """
         Ger spelaren styrke bonusar beroende på vilken lvl den är i och vad den
@@ -56,6 +57,8 @@ class Player():
         if "yxa_3" in self.inventory:
             print("yxa: styrka 3")
 
+        input("för att stänga, klicka på enter")
+
     # ------------------------------------------------- B A K O M   D Ö R R ------------------------------------------------------- #
 
     def bakom_dörr(self):    ###################
@@ -67,7 +70,8 @@ class Player():
         
         if val_av_dörr in {"1","2","3"}:
 
-            dörrens_innehåll =randint(1,3)
+            dörrens_innehåll =randint(1,3) 
+            #Slumpar vad som fins i dörrren.
 
             def inventory_fullt(): 
                 """
@@ -531,6 +535,14 @@ def meny():
 
     ''')
 
+def fel_imput():
+    print('''
+    Livet är ett misstag
+    Klicka på å för att veta varför
+
+    Pankakor är även najs 🥞
+    ''')
+
 def avslutande_text():
     print('''
     Tack för att du spelade detta spel!
@@ -547,12 +559,10 @@ while True:
     val = input("Ditt val -> ")
 
     if val == "e":
-        random_dude.visa_inventory()
-        input("för att stänga, klicka på enter") 
+        random_dude.visa_inventory() 
 
     elif val == "q":
         random_dude.stats()
-        input("för att stänga, klicka på enter")
         
     elif val == "w":
        random_dude.bakom_dörr()
@@ -564,12 +574,7 @@ while True:
         random_dude.fusknapp_förlust()
 
     else:
-        print('''
-        Livet är ett misstag
-        Klicka på å för att veta varför
-
-        Pankakor är även najs
-        ''')
+        fel_imput()
         continue
 
     if random_dude.hp <= 0:
