@@ -550,6 +550,8 @@ def fel_imput():
     Klicka på å för att veta varför
 
     Pankakor är även najs 🥞
+
+    /Julia
     ''')
 
 def avslutande_text():
