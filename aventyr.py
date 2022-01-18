@@ -308,7 +308,8 @@ class Player():
                     self.hp -= antal_knivar
                 
                 if i == 3:
-                    print('''Du gick in i en glas vägg och fick en lätt hjärnskakning 
+                    print('''
+                        Du gick in i en glas vägg och fick en lätt hjärnskakning 
                         och bröt din näsa.
                         
                         Du förlorade 2 hälsopoäng.
@@ -504,6 +505,9 @@ class Player():
         self.hp -= 100             
    
 def intro_text():
+    """
+    Välkomnar spelaren till spelet och förklarar hur det fungerar och vad det går du på.
+    """
     print('''
     Välkommen till äventyrsspelet!
 
@@ -536,7 +540,12 @@ def meny():
     ''')
 
 def fel_imput():
+    """
+    Skriver att spelaren angivigt ett felaktigt imput.
+    """
     print('''
+    Felaktigt imput.
+    
     Livet är ett misstag
     Klicka på å för att veta varför
 
@@ -544,6 +553,9 @@ def fel_imput():
     ''')
 
 def avslutande_text():
+    """
+    Tackar spelaren för att den har spelat.
+    """
     print('''
     Tack för att du spelade detta spel!
     Hoppas du hade lite kul i alla fall.
